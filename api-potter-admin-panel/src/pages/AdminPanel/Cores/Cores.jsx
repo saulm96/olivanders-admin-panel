@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import apiCalls from '../../../utils/apiCalls.js';
 import ActionButton from '../../../components/ActionButton/ActionButton';
+import Modal from '../../../components/Modal/Modal';
+import Form from '../../../components/Form/Form';
+
 
 const Cores = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -28,15 +31,25 @@ const Cores = () => {
             setError(error);
         }
     }
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
+    const handleAddClick = () => {
+        setIsModalOpen(true);
+    }
+    const handleCloseModal = ()=> {
+        setIsModalOpen(false);
+    };
+    const handleFormSubmit = async (formData) => {
+        console.log('Form data submitted:', formData);
+        setIsModalOpen(false);
     }
 
     return (
         <div>
             <h1>Cores</h1>
-            <ActionButton text= "Add" />
+            <ActionButton text= "Add" onClick ={handleAddClick}/>
+            {isModalOpen && <Modal onClose={handleCloseModal}>
+                <p>Create a new Core</p>   
+                <Form item={data[0] || {}} onSubmit={handleFormSubmit}/>
+            </Modal>}
             <ul>
                 {data.map((item, index) => (
                     <li key={index}>

@@ -51,6 +51,8 @@ async function fetchApiDelete(variable, id) {
         throw error;
     }
 }
+
+
 export const apiCalls = {
     fetchApiList,
     fetchApiDelete
