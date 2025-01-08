@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import apiCalls from '../../../utils/apiCalls.js';
+
 import ActionButton from '../../../components/ActionButton/ActionButton';
 import Modal from '../../../components/Modal/Modal';
 import Form from '../../../components/Form/Form';
@@ -38,7 +39,13 @@ const Cores = () => {
         setIsModalOpen(false);
     };
     const handleFormSubmit = async (formData) => {
-        console.log('Form data submitted:', formData);
+        try {
+            await apiCalls.fetchApiCreate('core', formData);
+            const updatedResult = await apiCalls.fetchApiList('core');
+            setData(Array.isArray(updatedResult) ? updatedResult : [])
+        } catch (error) {
+            console.error('Something went wrong while creating the data: ', error);
+        }
         setIsModalOpen(false);
     }
 

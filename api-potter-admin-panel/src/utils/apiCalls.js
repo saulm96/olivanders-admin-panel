@@ -51,11 +51,36 @@ async function fetchApiDelete(variable, id) {
         throw error;
     }
 }
+async function fetchApiCreate(variable, data) {
+    const baseUrl = 'http://localhost:3001/api/';
+    const url = `${baseUrl}${variable}/new`;
 
+    const token = localStorage.getItem('token');
+
+    try{
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {                'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+        })
+        console.log(response);
+        if(!response.ok){
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const finalData = await response.json();
+        return finalData;
+    }catch(error){
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+}
 
 export const apiCalls = {
     fetchApiList,
-    fetchApiDelete
+    fetchApiDelete,
+    fetchApiCreate
 };
 //export all functions in this file
 export default apiCalls;

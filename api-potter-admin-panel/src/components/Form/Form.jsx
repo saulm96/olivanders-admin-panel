@@ -39,7 +39,7 @@ const Form = ({ item, onSubmit }) => {
                         )}
                     </div>
                 ))}
-            <button type="submit">Guardar</button>
+            <button type="submit">create</button>
         </form>
     );
 };
