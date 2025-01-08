@@ -1,7 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Form = ({ item, onSubmit }) => {
-    const [formData, setFormData] = useState(item || {});
+const Form = ({ item = {}, onSubmit, isEditing }) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        discover_date: '',
+        description: '',
+        ...item
+    });
+
+    useEffect(() => {
+        setFormData({
+            name: '',
+            discover_date: '',
+            description: '',
+            ...item
+        });
+    }, [item]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,7 +32,7 @@ const Form = ({ item, onSubmit }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            {Object.keys(item)
+            {Object.keys(formData)
                 .filter((key) => !key.toLowerCase().includes('id')) 
                 .map((key) => (
                     <div key={key}>
@@ -39,7 +53,7 @@ const Form = ({ item, onSubmit }) => {
                         )}
                     </div>
                 ))}
-            <button type="submit">create</button>
+            <button type="submit">{isEditing ? 'Update' : 'Create'}</button>
         </form>
     );
 };
