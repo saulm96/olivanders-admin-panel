@@ -1,0 +1,22 @@
+.landing-page-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 2rem;
+
+    width: 100%;
+}
+.redirection-container{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 2rem;
+    gap: 1rem;
+
+    width: 100%;
+}

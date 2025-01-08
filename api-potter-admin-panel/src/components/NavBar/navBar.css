@@ -1,0 +1,23 @@
+.navBar{
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    padding: 1rem;
+}
+.navBar__list{
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.navBar__list a{
+    text-decoration: none;
+}
+
+.navBar__list a:hover{
+    color: white;
+}
+.active-location{
+    color: white;
+    
+}

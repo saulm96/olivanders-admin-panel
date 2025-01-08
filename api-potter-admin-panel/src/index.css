@@ -1,4 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    color: #b6b4b4
+
+}
 body{
-    background-color: gray;
+    background-color: rgb(17, 16, 19);
 }
 
