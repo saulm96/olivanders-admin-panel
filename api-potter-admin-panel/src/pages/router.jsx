@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <LoginForm />,
   },
   {
-    path: "/admin-panel",
+    path: "/admin-panel/",
     element: <Root />,
     children: [
       {

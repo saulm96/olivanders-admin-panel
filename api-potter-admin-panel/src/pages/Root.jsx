@@ -10,7 +10,7 @@ function Root(){
         <NavBar />
         </header>
         <main>
-        {location.pathname === '/admin-panel/' && <LandingPage />}
+        {location.pathname === '/admin-panel' && <LandingPage />}
          <Outlet />
         </main>
         </>
