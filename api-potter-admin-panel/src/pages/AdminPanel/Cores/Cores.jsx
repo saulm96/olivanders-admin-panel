@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import fetchApiList from '../../../utils/apiCalls.js';
+import apiCalls from '../../../utils/apiCalls.js';
 import ActionButton from '../../../components/ActionButton/ActionButton';
 
 const Cores = () => {
@@ -9,7 +9,7 @@ const Cores = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetchApiList('core');
+                const result = await apiCalls.fetchApiList('core');
                 setData(result);
             } catch (error) {
                 setError(error);
@@ -19,6 +19,16 @@ const Cores = () => {
         fetchData();
     }, []);
 
+    const handleDelete = async (id) => {
+        try {
+            await apiCalls.fetchApiDelete('core', id); 
+            const updatedResult = await apiCalls.fetchApiList('core');
+            setData(Array.isArray(updatedResult) ? updatedResult : []);
+        } catch (error) {
+            setError(error);
+        }
+    }
+
     if (error) {
         return <div>Error: {error.message}</div>;
     }
@@ -26,7 +36,7 @@ const Cores = () => {
     return (
         <div>
             <h1>Cores</h1>
-            <ActionButton text= "New" />
+            <ActionButton text= "Add" />
             <ul>
                 {data.map((item, index) => (
                     <li key={index}>
@@ -35,7 +45,7 @@ const Cores = () => {
                         <p><strong>Discover Date:</strong> {item.discover_date}</p>
                         <p><strong>Description:</strong> {item.description}</p>
                         <ActionButton text= "Edit" />
-                        <ActionButton text= "Delete" />
+                        <ActionButton text= "Delete" onClick={() => handleDelete(item.core_id)}/>
                     </li>
                 ))}
             </ul>

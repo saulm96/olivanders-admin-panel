@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import fetchApiList from '../../../utils/apiCalls.js';
+import apiCalls from '../../../utils/apiCalls.js';
 import ActionButton from '../../../components/ActionButton/ActionButton';
 
 const Wands = () => {
@@ -9,7 +9,7 @@ const Wands = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetchApiList('wand');
+                const result = await apiCalls.fetchApiList('wand');
                 setData(result);
             } catch (error) {
                 setError(error);
