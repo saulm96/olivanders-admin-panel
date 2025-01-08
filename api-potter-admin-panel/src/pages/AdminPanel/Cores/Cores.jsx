@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import apiCalls from "../../../utils/apiCalls.js";
-
 import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
@@ -10,6 +9,7 @@ const Cores = () => {
   const [data, setData] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentCore, setCurrentCore] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,7 @@ const Cores = () => {
         const result = await apiCalls.fetchApiList("core");
         setData(result);
       } catch (error) {
-        setError(error);
+        console.error("Error fetching data", error);
       }
     };
 
@@ -33,22 +33,26 @@ const Cores = () => {
       setError(error);
     }
   };
+
   const handleAddClick = () => {
     setIsEditing(false);
     setCurrentCore(null);
     setIsModalOpen(true);
   };
+
   const handleEditClick = (core) => {
     setIsEditing(true);
     setCurrentCore(core);
     setIsModalOpen(true);
   };
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
   const handleFormSubmit = async (formData) => {
     try {
-      if (isEditing == currentCore) {
+      if (isEditing) {
         await apiCalls.fetchApiUpdate("core", currentCore.core_id, formData);
       } else {
         await apiCalls.fetchApiCreate("core", formData);
@@ -56,9 +60,7 @@ const Cores = () => {
       const updatedResult = await apiCalls.fetchApiList("core");
       setData(Array.isArray(updatedResult) ? updatedResult : []);
     } catch {
-      console.error(
-        "Somethign went wrong while creating/updating the new core"
-      );
+      console.error("Something went wrong while creating/updating the new core");
     }
     setIsModalOpen(false);
   };
@@ -74,6 +76,11 @@ const Cores = () => {
             item={currentCore || {}}
             onSubmit={handleFormSubmit}
             isEditing={isEditing}
+            fields={[
+              { name: 'name', label: 'Name', type: 'text', required: true },
+              { name: 'discover_date', label: 'Discover Date', type: 'text', required: true },
+              { name: 'description', label: 'Description', type: 'text', required: true }
+            ]}
           />
         </Modal>
       )}

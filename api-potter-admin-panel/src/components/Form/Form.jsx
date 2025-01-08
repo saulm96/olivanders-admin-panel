@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const Form = ({ item = {}, onSubmit, isEditing }) => {
-    const [formData, setFormData] = useState({
-        name: '',
-        discover_date: '',
-        description: '',
-        ...item
-    });
+const Form = ({ item, onSubmit, isEditing, fields }) => {
+    const [formData, setFormData] = useState(item);
 
     useEffect(() => {
-        setFormData({
-            name: '',
-            discover_date: '',
-            description: '',
-            ...item
-        });
+        setFormData(item);
     }, [item]);
 
     const handleChange = (e) => {
@@ -32,27 +22,18 @@ const Form = ({ item = {}, onSubmit, isEditing }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            {Object.keys(formData)
-                .filter((key) => !key.toLowerCase().includes('id')) 
-                .map((key) => (
-                    <div key={key}>
-                        <label>{key}</label>
-                        {key === 'description' ? (
-                            <textarea
-                                name={key}
-                                value={formData[key] || ''}
-                                onChange={handleChange}
-                            />
-                        ) : (
-                            <input
-                                type="text"
-                                name={key}
-                                value={formData[key] || ''}
-                                onChange={handleChange}
-                            />
-                        )}
-                    </div>
-                ))}
+            {fields.map((field) => (
+                <div key={field.name}>
+                    <label>{field.label}</label>
+                    <input
+                        type={field.type}
+                        name={field.name}
+                        value={formData[field.name] || ''}
+                        onChange={handleChange}
+                        required={field.required}
+                    />
+                </div>
+            ))}
             <button type="submit">{isEditing ? 'Update' : 'Create'}</button>
         </form>
     );
