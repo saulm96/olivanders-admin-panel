@@ -23,6 +23,14 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink
+            to="/admin-panel/wandmakers"
+            className={({ isActive }) => (isActive ? "active-location" : "")}
+          >
+            Wandmakers
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/admin-panel/wands"
             className={({ isActive }) => (isActive ? "active-location" : "")}
           >
