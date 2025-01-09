@@ -7,21 +7,32 @@ import Form from "../../../components/Form/Form";
 const Cores = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [languages, setLanguages] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [currentCore, setCurrentCore] = useState(null);
   const [error, setError] = useState(null);
 
+  const fetchData = async () => {
+    try {
+      const result = await apiCalls.fetchApiList("core");
+      setData(result);
+    } catch (error) {
+      console.error("Error fetching data", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchLanguages = async () => {
       try {
-        const result = await apiCalls.fetchApiList("core");
-        setData(result);
+        const result = await apiCalls.fetchApiList("language");
+        setLanguages(result);
       } catch (error) {
-        console.error("Error fetching data", error);
+        console.error("Error fetching languages", error);
       }
     };
 
     fetchData();
+    fetchLanguages();
   }, []);
 
   const handleDelete = async (id) => {
@@ -60,13 +71,38 @@ const Cores = () => {
       const updatedResult = await apiCalls.fetchApiList("core");
       setData(Array.isArray(updatedResult) ? updatedResult : []);
     } catch {
-      console.error("Something went wrong while creating/updating the new core");
+      console.error(
+        "Something went wrong while creating/updating the new core"
+      );
     }
     setIsModalOpen(false);
   };
 
+  const handleLanguageClick = async (languageId) => {
+    try {
+      await apiCalls.fetchApiUpdateUserLanguage({ language_id: languageId });
+      await fetchData();
+    } catch (error) {
+      console.error("Error updating user language", error);
+    }
+  };
+
   return (
     <div>
+      <section className="available-languages-container">
+      <h2>Available Languages</h2>
+      <div>
+        {languages.map((language) => (
+          <button
+            key={language.language_id}
+            onClick={() => handleLanguageClick(language.language_id)}
+          >
+            {language.name}
+          </button>
+        ))}
+      </div>
+      </section>
+      <section className="Cores-container">
       <h1>Cores</h1>
       <ActionButton text="Add" onClick={handleAddClick} />
       {isModalOpen && (
@@ -77,9 +113,19 @@ const Cores = () => {
             onSubmit={handleFormSubmit}
             isEditing={isEditing}
             fields={[
-              { name: 'name', label: 'Name', type: 'text', required: true },
-              { name: 'discover_date', label: 'Discover Date', type: 'text', required: true },
-              { name: 'description', label: 'Description', type: 'text', required: true }
+              { name: "name", label: "Name", type: "text", required: true },
+              {
+                name: "discover_date",
+                label: "Discover Date:",
+                type: "text",
+                required: true,
+              },
+              {
+                name: "description",
+                label: "Description",
+                type: "text",
+                required: true,
+              },
             ]}
           />
         </Modal>
@@ -107,6 +153,7 @@ const Cores = () => {
           </li>
         ))}
       </ul>
+    </section>
     </div>
   );
 };
