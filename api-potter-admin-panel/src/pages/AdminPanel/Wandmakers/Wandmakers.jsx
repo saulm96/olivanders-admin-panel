@@ -149,9 +149,11 @@ const Wandmakers = () => {
                 <p>
                   <strong>Name: </strong> {item.name}
                 </p>
-                <p>
-                  <strong>Last Name: </strong> {item.last_name}
-                </p>
+                {item.last_name && (
+                  <p>
+                    <strong>Last Name: </strong> {item.last_name}
+                  </p>
+                )}
                 <p>
                   <strong>Specialty: </strong> {item.specialty}
                 </p>
