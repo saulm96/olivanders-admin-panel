@@ -7,6 +7,14 @@ const NavBar = () => {
       <ul className="navBar__list">
         <li>
           <NavLink
+            to="/admin-panel/home"
+            className={({ isActive }) => (isActive ? "active-location" : "")}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/admin-panel/cores"
             className={({ isActive }) => (isActive ? "active-location" : "")}
           >

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-// Utils
+
 import apiCalls from "../../../utils/apiCalls";
+
 import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal"; // Corrección en la importación de Modal
 import Form from "../../../components/Form/Form";
@@ -20,7 +21,7 @@ const Wandmakers = () => {
       const result = await apiCalls.fetchApiList("wandmaker");
       setData(result);
     } catch (error) {
-      console.error("Error fetching data", error);
+      setError(error);
     }
   };
 
@@ -30,7 +31,7 @@ const Wandmakers = () => {
         const result = await apiCalls.fetchApiList("language");
         setLanguages(result);
       } catch (error) {
-        console.error("Error fetching languages", error);
+        setError(error);
       }
     };
     fetchData();
@@ -111,7 +112,7 @@ const Wandmakers = () => {
       </section>
       <section className="Wandmakers-container">
         <h1>Wandmakers</h1>
-        <ActionButton text="Add Wandmaker" onClick={handleAddClick} />
+        <ActionButton text="Add" onClick={handleAddClick} />
         {isModalOpen && (
           <Modal onClose={handleCloseModal}>
             <p>{isEditing ? "Edit Core" : "Create a new Core"}</p>

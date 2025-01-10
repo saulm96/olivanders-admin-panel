@@ -1,13 +1,14 @@
 import {createBrowserRouter} from "react-router-dom";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import Root from "./Root"
-import LoginForm from "./LoginForm/LoginForm";
+import LoginForm from "./SignIn/LoginForm/LoginForm";
 
 import Cores from "./AdminPanel/Cores/Cores";
 import Wands from "./AdminPanel/Wands/Wands";
 import Woods from "./AdminPanel/Woods/Woods";
 import Languages from "./AdminPanel/Languages/Languages";
 import Wandmakers from "./AdminPanel/Wandmakers/Wandmakers";
+import LandingPage from "./AdminPanel/LandingPage/LandingPage";
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
+      {
+        path: "home",
+        element: <LandingPage />,
+      },
       {
         path: "cores",
         element: <Cores />,
