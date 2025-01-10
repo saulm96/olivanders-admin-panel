@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm/LoginForm";
 import RegisterForm from "./RegisterForm/RegisterForm";
+
 import "./signin.css";
 import loginBg from "../../assets/login-bg-1.png";
 
@@ -34,7 +35,7 @@ const SignInPage = () => {
                                     </p>
                                 </div>
                             </div>
-                            {isLogin ? <LoginForm /> : <RegisterForm setIsLogin={setIsLogin} />}
+                            {isLogin ? <LoginForm /> : <RegisterForm />}
                         </div>
                     </div>
                 </div>
@@ -42,5 +43,3 @@ const SignInPage = () => {
         </div>
     );
 };
-
-export default SignInPage;

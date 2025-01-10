@@ -1,0 +1,54 @@
+.Wandmakers-container{
+
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    list-style-type: none;
+}
+.Wandmakers-container h1{
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.button-Add-function {
+    width: 4rem;
+    height: 1.5rem;
+
+    background-color: rgba(16, 5, 66, 0.8);
+    box-shadow: 0 0 8px rgba(90, 60, 220, 0.3);
+
+    color: rgba(208, 236, 252, 0.7);
+
+    margin: 1.5rem 0;;
+
+}
+
+.wandmakers-list{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+
+.wandmaker-item{
+    list-style-type: none;
+    border: 1px solid rgba(208, 236, 252, 0.7);
+    border-radius: 0.5rem;
+
+    padding: 0.5rem;
+
+    color: rgba(208, 236, 252, 0.7);
+    background-color: rgba(6, 0, 20, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
+
+    width: 100%;
+
+}

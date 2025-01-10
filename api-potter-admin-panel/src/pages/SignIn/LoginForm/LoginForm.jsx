@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./loginform.css";
-import loginBg from "../../../assets/login-bg-1.png"; // Importa la imagen
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -38,19 +37,6 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-wrapper">
-      <div className="login-container">
-        <div className="login-form-container">
-          <div className="login-form-content-wrapper">
-            <img className="login-bg-1" src={loginBg} />
-            <div className="signin-form-content">
-              <div className="title-section">
-                <h2 className="login-title">Welcome to Olivanders</h2>
-                <p className="login-subtitle">
-                  Sign in or create a new account
-                </p>
-              </div>
-
               <form className="login-form" onSubmit={handleSubmit}>
                 <div className="login-input-container">
                   <input
@@ -70,18 +56,13 @@ const LoginForm = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                {errorMessage && (
-                  <p className="error-message">{errorMessage}</p>
-                )}
                 <button type="submit" className="login-button">
                   Sign in
                 </button>
+                {errorMessage && (
+                  <p className="login-error-message">{errorMessage}</p>
+                )}
               </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 };
 

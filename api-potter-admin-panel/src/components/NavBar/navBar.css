@@ -1,23 +1,39 @@
-.navBar{
+.navBar {
     width: 100%;
-    border-bottom: 1px solid lightgray;
-    padding: 1rem;
+    background-color: rgba(10, 10, 12, 0.9);
+    box-shadow: 0 0 10px rgba(50, 1, 90, 0.5);
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.navBar__list{
-    list-style-type: none;
 
+.navBar__list {
+    width: 100%;
+    list-style-type: none;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-}
-.navBar__list a{
-    text-decoration: none;
+    gap: 2rem;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.navBar__list a:hover{
-    color: white;
+.navBar__list a {
+    text-decoration: none;
+    color: rgba(208, 236, 252, 0.7);
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
 }
-.active-location{
-    color: white;
-    
+
+.navBar__list a:hover {
+    color: rgba(208, 236, 252, 1);
+    background-color: rgba(90, 60, 220, 0.2);
+    box-shadow: 0 0 8px rgba(90, 60, 220, 0.3);
+}
+
+.active-location {
+    color: rgba(208, 236, 252, 1) !important;
+    background: linear-gradient(rgb(150, 130, 220, 0.1), rgb(90, 60, 220, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(90, 60, 220, 0.4);
 }

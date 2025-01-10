@@ -1,0 +1,33 @@
+
+.languages-page-title{
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.language-list{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.language-item{
+    list-style-type: none;
+    border: 1px solid rgba(208, 236, 252, 0.7);
+    border-radius: 0.5rem;
+
+    padding: 0.5rem;
+
+    color: rgba(208, 236, 252, 0.7);
+    background-color: rgba(6, 0, 20, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 0.5rem;
+
+    width: 10%;
+
+}

@@ -3,6 +3,7 @@ import apiCalls from '../../../utils/apiCalls.js';
 import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
+import "./languages.css";
 
 const Languages = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,7 +62,7 @@ const Languages = () => {
 
     return (
         <div>
-            <h1>Languages</h1>
+            <h1 className='languages-page-title'>Languages</h1>
             <ActionButton text="Add" onClick={handleAddClick} />
             {isModalOpen && (
                 <Modal onClose={handleCloseModal}>
@@ -77,9 +78,9 @@ const Languages = () => {
                     />
                 </Modal>
             )}
-            <ul>
+            <ul className="language-list">
                 {data.map((item, index) => (
-                    <li key={index}>
+                    <li key={index} className="language-item">
                         <p>Language ID: {item.language_id}</p>
                         <p>Name: {item.name}</p>
                         <p>ISO Code: {item.iso_code.toUpperCase()}</p>

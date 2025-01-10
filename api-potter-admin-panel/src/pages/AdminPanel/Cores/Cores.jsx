@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 //Utils
 import apiCalls from "../../../utils/apiCalls.js";
 
+import "./cores.css";
+
 import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
@@ -95,7 +97,6 @@ const Cores = () => {
   return (
     <div>
       <section className="available-languages-container">
-        <h2>Available Languages</h2>
         <div>
           {languages.map((language) => (
             <button
@@ -107,7 +108,7 @@ const Cores = () => {
           ))}
         </div>
       </section>
-      <section className="Cores-container">
+      <section className="cores-container">
         <h1>Cores</h1>
         <ActionButton text="Add" onClick={handleAddClick} />
         {isModalOpen && (
@@ -138,9 +139,9 @@ const Cores = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <ul>
+          <ul className="cores-list">
             {data.map((item, index) => (
-              <li key={index}>
+              <li key={index} className="core-item">
                 <p>
                   <strong>Core ID:</strong> {item.core_id}
                 </p>
@@ -153,6 +154,7 @@ const Cores = () => {
                 <p>
                   <strong>Description:</strong> {item.description}
                 </p>
+                <div className="action-buttons">
                 <ActionButton
                   text="Edit"
                   onClick={() => handleEditClick(item)}
@@ -161,6 +163,7 @@ const Cores = () => {
                   text="Delete"
                   onClick={() => handleDelete(item.core_id)}
                 />
+                </div>
               </li>
             ))}
           </ul>

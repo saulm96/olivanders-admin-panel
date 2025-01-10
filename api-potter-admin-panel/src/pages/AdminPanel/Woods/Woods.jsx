@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import apiCalls from "../../../utils/apiCalls.js";
 
+import "./woods.css";
+
 import ActionButton from "../../../components/ActionButton/ActionButton.jsx";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
@@ -93,7 +95,6 @@ const Woods = () => {
   return (
     <div>
       <section className="available-languages-container">
-        <h2>Available Languages</h2>
         <div>
           {languages.map((language) => (
             <button
@@ -136,9 +137,9 @@ const Woods = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <ul>
+          <ul className="woods-list">
             {data.map((item, index) => (
-              <li key={index}>
+              <li key={index} className="wood-item">
                 <p>
                   <strong>Wood ID:</strong> {item.wood_id}
                 </p>
@@ -151,14 +152,16 @@ const Woods = () => {
                 <p>
                   <strong>Description:</strong> {item.description}
                 </p>
-                <ActionButton
-                  text="Edit"
-                  onClick={() => handleEditClick(item)}
-                />
-                <ActionButton
-                  text="Delete"
-                  onClick={() => handleDelete(item.wood_id)}
-                />
+                <div className="action-buttons">
+                  <ActionButton
+                    text="Edit"
+                    onClick={() => handleEditClick(item)}
+                  />
+                  <ActionButton
+                    text="Delete"
+                    onClick={() => handleDelete(item.wood_id)}
+                  />
+                </div>
               </li>
             ))}
           </ul>

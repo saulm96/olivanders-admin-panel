@@ -1,7 +1,13 @@
-import "./navBar.css";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
+import "./navBar.css";
+
+import apiCalls from "../../utils/apiCalls";
+
 const NavBar = () => {
+
+
   return (
     <nav className="navBar">
       <ul className="navBar__list">
@@ -54,6 +60,7 @@ const NavBar = () => {
           </NavLink>
         </li>
       </ul>
+
     </nav>
   );
 };

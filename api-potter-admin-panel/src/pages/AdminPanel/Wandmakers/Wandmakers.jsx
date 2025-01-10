@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-
 import apiCalls from "../../../utils/apiCalls";
+
+import "./wandmakers.css";
 
 import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal"; // Corrección en la importación de Modal
@@ -98,7 +99,6 @@ const Wandmakers = () => {
   return (
     <div>
       <section className="available-languages-container">
-        <h2>Available Languages</h2>
         <div>
           {languages.map((language) => (
             <button
@@ -141,9 +141,9 @@ const Wandmakers = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <ul>
+          <ul className="wandmakers-list">
             {data.map((item, index) => (
-              <li key={index}>
+              <li key={index} className="wandmaker-item">
                 <p>
                   <strong>Wandmaker ID: </strong> {item.wandmaker_id}
                 </p>
@@ -158,14 +158,16 @@ const Wandmakers = () => {
                 <p>
                   <strong>Specialty: </strong> {item.specialty}
                 </p>
-                <ActionButton
-                  text="Edit"
-                  onClick={() => handleEditClick(item)}
-                />
-                <ActionButton
-                  text="Delete"
-                  onClick={() => handleDelete(item.wandmaker_id)}
-                />
+                <div className="action-buttons">
+                  <ActionButton
+                    text="Edit"
+                    onClick={() => handleEditClick(item)}
+                  />
+                  <ActionButton
+                    text="Delete"
+                    onClick={() => handleDelete(item.wandmaker_id)}
+                  />
+                </div>
               </li>
             ))}
           </ul>

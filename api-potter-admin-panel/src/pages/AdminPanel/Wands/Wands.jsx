@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import apiCalls from "../../../utils/apiCalls";
 
+import "./wands.css";
+
 import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
@@ -92,7 +94,6 @@ const Wands = () => {
   return (
     <div>
       <section className="available-languages-container">
-        <h2>Available Languages</h2>
         <div>
           {languages.map((language) => (
             <button
@@ -106,7 +107,7 @@ const Wands = () => {
       </section>
       <section className="wands-container">
         <h1>Wands</h1>
-        <ActionButton text="Add Wand" onClick={handleAddClick} />
+        <ActionButton text="Add" onClick={handleAddClick} />
         {isModalOpen && (
           <Modal onClose={handleCloseModal}>
             <p>{isEditing ? "Edit Wand" : "Create a new Wand"}</p>
@@ -170,9 +171,9 @@ const Wands = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <ul>
+          <ul className="wands-list">
             {data.map((item, index) => (
-              <li key={index}>
+              <li key={index} className="wand-item">
                 <p>
                   <strong>Wand ID: </strong> {item.wand_id}
                 </p>
@@ -201,6 +202,7 @@ const Wands = () => {
                   <strong>Wandmaker Last Name: </strong>{" "}
                   {item["wandmaker.last_name"]}
                 </p>
+                <div className="action-buttons">
                 <ActionButton
                   text="Edit"
                   onClick={() => handleEditClick(item)}
@@ -209,6 +211,7 @@ const Wands = () => {
                   text="Delete"
                   onClick={() => handleDelete(item.wand_id)}
                 />
+                </div>
               </li>
             ))}
           </ul>
