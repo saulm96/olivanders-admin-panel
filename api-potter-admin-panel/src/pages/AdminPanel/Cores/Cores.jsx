@@ -113,7 +113,9 @@ const Cores = () => {
         <ActionButton text="Add" onClick={handleAddClick} />
         {isModalOpen && (
           <Modal onClose={handleCloseModal}>
-            <p>{isEditing ? "Edit Core" : "Create a new Core"}</p>
+            <h2 className="modal-title">
+              {isEditing ? "Edit Core" : "Create a new Core"}
+            </h2>
             <Form
               item={currentCore || {}}
               onSubmit={handleFormSubmit}
@@ -142,27 +144,29 @@ const Cores = () => {
           <ul className="cores-list">
             {data.map((item, index) => (
               <li key={index} className="core-item">
-                <p>
-                  <strong>Core ID:</strong> {item.core_id}
-                </p>
-                <p>
-                  <strong>Name:</strong> {item.name}
-                </p>
-                <p>
-                  <strong>Discover Date:</strong> {item.discover_date}
-                </p>
-                <p>
-                  <strong>Description:</strong> {item.description}
-                </p>
+                <div className="core-item-content">
+                  <p>
+                    <strong>Core ID:</strong> {item.core_id}
+                  </p>
+                  <p>
+                    <strong>Name:</strong> {item.name}
+                  </p>
+                  <p>
+                    <strong>Discover Date:</strong> {item.discover_date}
+                  </p>
+                  <p>
+                    <strong>Description:</strong> {item.description}
+                  </p>
+                </div>
                 <div className="action-buttons">
-                <ActionButton
-                  text="Edit"
-                  onClick={() => handleEditClick(item)}
-                />
-                <ActionButton
-                  text="Delete"
-                  onClick={() => handleDelete(item.core_id)}
-                />
+                  <ActionButton
+                    text="Edit"
+                    onClick={() => handleEditClick(item)}
+                  />
+                  <ActionButton
+                    text="Delete"
+                    onClick={() => handleDelete(item.core_id)}
+                  />
                 </div>
               </li>
             ))}

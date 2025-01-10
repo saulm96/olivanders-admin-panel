@@ -27,7 +27,7 @@
 .woods-list{
     margin-top: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 
     gap: 1rem;
 }
@@ -49,4 +49,14 @@
     align-items: start;
     gap: 0.5rem;
 
+}
+
+.wood-item-content{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    margin: 1rem
 }

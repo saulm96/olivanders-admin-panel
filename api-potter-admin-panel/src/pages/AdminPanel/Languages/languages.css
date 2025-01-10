@@ -7,7 +7,7 @@
 .language-list{
     margin-top: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1rem;
 }
 
@@ -25,9 +25,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     gap: 0.5rem;
 
-    width: 10%;
-
+    padding: 1.5rem;
 }

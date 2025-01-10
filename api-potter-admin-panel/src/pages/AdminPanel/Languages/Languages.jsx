@@ -66,7 +66,7 @@ const Languages = () => {
             <ActionButton text="Add" onClick={handleAddClick} />
             {isModalOpen && (
                 <Modal onClose={handleCloseModal}>
-                    <p>{isEditing ? "Edit Language" : "Create a new Language"}</p>
+                    <h2 className="modal-title">{isEditing ? "Edit Language" : "Create a new Language"}</h2>
                     <Form
                         item={currentLanguage || {}}
                         onSubmit={handleFormSubmit}

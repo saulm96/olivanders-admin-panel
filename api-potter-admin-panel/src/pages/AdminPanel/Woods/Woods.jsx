@@ -111,7 +111,9 @@ const Woods = () => {
         <ActionButton text="Add" onClick={handleAddClick} />
         {isModalOpen && (
           <Modal onClose={handleCloseModal}>
-            <p>{isEditing ? "Edit Wood" : "Create a new Wood"}</p>
+            <h2 className="modal-title">
+              {isEditing ? "Edit Wood" : "Create a new Wood"}
+            </h2>
             <Form
               item={currentWood || {}}
               onSubmit={handleFormSubmit}
@@ -140,18 +142,20 @@ const Woods = () => {
           <ul className="woods-list">
             {data.map((item, index) => (
               <li key={index} className="wood-item">
-                <p>
-                  <strong>Wood ID:</strong> {item.wood_id}
-                </p>
-                <p>
-                  <strong>Name:</strong> {item.name}
-                </p>
-                <p>
-                  <strong>Discover Date:</strong> {item.discover_date}
-                </p>
-                <p>
-                  <strong>Description:</strong> {item.description}
-                </p>
+                <div className="wood-item-content">
+                  <p>
+                    <strong>Wood ID:</strong> {item.wood_id}
+                  </p>
+                  <p>
+                    <strong>Name:</strong> {item.name}
+                  </p>
+                  <p>
+                    <strong>Discover Date:</strong> {item.discover_date}
+                  </p>
+                  <p>
+                    <strong>Description:</strong> {item.description}
+                  </p>
+                </div>
                 <div className="action-buttons">
                   <ActionButton
                     text="Edit"

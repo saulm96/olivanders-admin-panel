@@ -49,6 +49,16 @@
     align-items: start;
     gap: 0.5rem;
 
-    width: 100%;
-
 }
+
+.wand-item-content{
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    margin: 1rem;
+}
+
+

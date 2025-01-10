@@ -57,7 +57,7 @@ const Wands = () => {
 
   const handleEditClick = () => {
     setIsEditing(true);
-    setCurrentWand(wand);
+    setCurrentWand(currentWand);
     setIsModalOpen(true);
   };
 
@@ -110,7 +110,9 @@ const Wands = () => {
         <ActionButton text="Add" onClick={handleAddClick} />
         {isModalOpen && (
           <Modal onClose={handleCloseModal}>
-            <p>{isEditing ? "Edit Wand" : "Create a new Wand"}</p>
+            <h2 className="modal-title">
+              {isEditing ? "Edit Wand" : "Create a new Wand"}
+            </h2>
             <Form
               item={currentWand || {}}
               onSubmit={handleFormSubmit}
@@ -118,13 +120,13 @@ const Wands = () => {
               fields={[
                 {
                   name: "wandmaker.name",
-                  label: "Wandmaker Name",
+                  label: "Wandmaker Name:",
                   type: "text",
                   required: true,
                 },
                 {
                   name: "wandmaker.last_name",
-                  label: "Wandmaker Last Name",
+                  label: "Wandmaker Last Name:",
                   type: "text",
                   required: true,
                 },
@@ -174,43 +176,45 @@ const Wands = () => {
           <ul className="wands-list">
             {data.map((item, index) => (
               <li key={index} className="wand-item">
-                <p>
-                  <strong>Wand ID: </strong> {item.wand_id}
-                </p>
-                <p>
-                  <strong>Wand Name: </strong> {item.name}
-                </p>
-                <p>
-                  <strong>Wood Type: </strong> {item.wood_name}
-                </p>
-                <p>
-                  <strong>Core Type: </strong> {item.core_name}
-                </p>
-                <p>
-                  <strong>Length: </strong> {item.length}
-                </p>
-                <p>
-                  <strong>Flexibility: </strong> {item.flexibility}
-                </p>
-                <p>
-                  <strong>Description: </strong> {item.description}
-                </p>
-                <p>
-                  <strong>Wandmaker Name: </strong> {item["wandmaker.name"]}
-                </p>
-                <p>
-                  <strong>Wandmaker Last Name: </strong>{" "}
-                  {item["wandmaker.last_name"]}
-                </p>
+                <div className="wand-item-content">
+                  <p>
+                    <strong>Wand ID: </strong> {item.wand_id}
+                  </p>
+                  <p>
+                    <strong>Wand Name: </strong> {item.name}
+                  </p>
+                  <p>
+                    <strong>Wood Type: </strong> {item.wood_name}
+                  </p>
+                  <p>
+                    <strong>Core Type: </strong> {item.core_name}
+                  </p>
+                  <p>
+                    <strong>Length: </strong> {item.length}
+                  </p>
+                  <p>
+                    <strong>Flexibility: </strong> {item.flexibility}
+                  </p>
+                  <p>
+                    <strong>Description: </strong> {item.description}
+                  </p>
+                  <p>
+                    <strong>Wandmaker Name: </strong> {item["wandmaker.name"]}
+                  </p>
+                  <p>
+                    <strong>Wandmaker Last Name: </strong>{" "}
+                    {item["wandmaker.last_name"]}
+                  </p>
+                </div>
                 <div className="action-buttons">
-                <ActionButton
-                  text="Edit"
-                  onClick={() => handleEditClick(item)}
-                />
-                <ActionButton
-                  text="Delete"
-                  onClick={() => handleDelete(item.wand_id)}
-                />
+                  <ActionButton
+                    text="Edit"
+                    onClick={() => handleEditClick(item)}
+                  />
+                  <ActionButton
+                    text="Delete"
+                    onClick={() => handleDelete(item.wand_id)}
+                  />
                 </div>
               </li>
             ))}

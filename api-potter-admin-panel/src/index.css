@@ -7,7 +7,7 @@
 
 }
 body{
-    background-color: rgb(17, 16, 19);
+    background: linear-gradient(90deg, #000000, #04032b, #000000);
 }
 
 .available-languages-container div{
@@ -18,9 +18,7 @@ body{
     gap: 2rem;
     padding: 1rem;
 
-    background-color: rgba(6, 0, 20, 0.6);
-
-
+    background-color: rgba(10, 10, 12, 0.541);
 }
 
 .available-languages-container div button{

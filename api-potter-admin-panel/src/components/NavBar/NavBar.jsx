@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import "./navBar.css";
 
-import apiCalls from "../../utils/apiCalls";
 
 const NavBar = () => {
 

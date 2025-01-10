@@ -115,7 +115,9 @@ const Wandmakers = () => {
         <ActionButton text="Add" onClick={handleAddClick} />
         {isModalOpen && (
           <Modal onClose={handleCloseModal}>
-            <p>{isEditing ? "Edit Core" : "Create a new Core"}</p>
+            <h2 className="modal-title">
+              {isEditing ? "Edit Core" : "Create a new Core"}
+            </h2>
             <Form
               item={currentWandmaker || {}}
               onSubmit={handleFormSubmit}
@@ -144,20 +146,22 @@ const Wandmakers = () => {
           <ul className="wandmakers-list">
             {data.map((item, index) => (
               <li key={index} className="wandmaker-item">
-                <p>
-                  <strong>Wandmaker ID: </strong> {item.wandmaker_id}
-                </p>
-                <p>
-                  <strong>Name: </strong> {item.name}
-                </p>
-                {item.last_name && (
+                <div className="wandmaker-item-content">
                   <p>
-                    <strong>Last Name: </strong> {item.last_name}
+                    <strong>Wandmaker ID: </strong> {item.wandmaker_id}
                   </p>
-                )}
-                <p>
-                  <strong>Specialty: </strong> {item.specialty}
-                </p>
+                  <p>
+                    <strong>Name: </strong> {item.name}
+                  </p>
+                  {item.last_name && (
+                    <p>
+                      <strong>Last Name: </strong> {item.last_name}
+                    </p>
+                  )}
+                  <p>
+                    <strong>Specialty: </strong> {item.specialty}
+                  </p>
+                </div>
                 <div className="action-buttons">
                   <ActionButton
                     text="Edit"

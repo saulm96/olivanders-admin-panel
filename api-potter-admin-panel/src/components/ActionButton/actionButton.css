@@ -8,9 +8,9 @@
     gap: 1rem;
 
     padding: 0.5rem;
+    margin-top: auto;
 
 }
-
 .button-Edit-function{
     background-color: rgb(132, 144, 151);
     box-shadow: 0 0 8px rgba(90, 60, 220, 0.3);
