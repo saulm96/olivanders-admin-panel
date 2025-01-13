@@ -8,6 +8,8 @@ import ActionButton from "../../../components/ActionButton/ActionButton.jsx";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
 
+import Loader from "../../../components/Loader/Loader";
+
 const Woods = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
@@ -129,7 +131,7 @@ const Woods = () => {
                 {
                   name: "description",
                   label: "Description",
-                  type: "text",
+                  type: "textarea",
                   required: true,
                 },
               ]}
@@ -137,7 +139,7 @@ const Woods = () => {
           </Modal>
         )}
         {loading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           <ul className="woods-list">
             {data.map((item, index) => (

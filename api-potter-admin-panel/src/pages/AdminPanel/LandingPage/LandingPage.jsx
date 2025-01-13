@@ -1,16 +1,21 @@
-import ItemContainer from "../../../components/ItemContainer/ItemContainer";
 import "./landingPage.css";
+import IntroductionLP from "./Introduction/IntroductionLP";
+
+import TestImg from "../../../assets/olivanders-test-img.jpg";
 
 const LandingPage = () => {
   return (
-    <div className="landing-page-content">
-      <h1 className="landing-page-title">Olivanders admin panel</h1>
-      <section className="redirection-container">
-        <ItemContainer title="Cores" />
-        <ItemContainer title="Woods" />
-        <ItemContainer title="Wands" />
-        <ItemContainer title="Languages" />
-      </section>
+    <div className="lp-wrapper-content">
+    <div className="lp-wrapper">
+     <IntroductionLP />
+    </div>
+     <div className="lp-section-1">
+        <div className="lp-section-1-difumination">
+        </div>
+        <div className="lp-section-1-content">
+        <img src={TestImg} className="test-img"/>
+        </div>
+     </div>
     </div>
   );
 };

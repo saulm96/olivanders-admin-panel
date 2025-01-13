@@ -1,5 +1,7 @@
+body:has(.woods-container){
+    background: linear-gradient(90deg, #000000, #04032b, #000000);
+    }
 .woods-container{
-
     width: 100%;
     height: 100%;
     padding: 20px;

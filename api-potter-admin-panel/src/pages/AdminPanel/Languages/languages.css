@@ -1,4 +1,6 @@
-
+body:has(.languages-page-title){
+    background: linear-gradient(90deg, #000000, #04032b, #000000);
+    }
 .languages-page-title{
     font-size: 4rem;
     margin-bottom: 20px;

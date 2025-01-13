@@ -7,6 +7,7 @@ import "./wands.css";
 import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
+import Loader from "../../../components/Loader/Loader";
 
 const Wands = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -163,7 +164,7 @@ const Wands = () => {
                 {
                   name: "description",
                   label: "Description:",
-                  type: "textfield",
+                  type: "textarea",
                   required: true,
                 },
               ]}
@@ -171,7 +172,7 @@ const Wands = () => {
           </Modal>
         )}
         {loading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           <ul className="wands-list">
             {data.map((item, index) => (

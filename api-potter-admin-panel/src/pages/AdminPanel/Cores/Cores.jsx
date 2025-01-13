@@ -9,6 +9,8 @@ import ActionButton from "../../../components/ActionButton/ActionButton";
 import Modal from "../../../components/Modal/Modal";
 import Form from "../../../components/Form/Form";
 
+import Loader from "../../../components/Loader/Loader"
+
 const Cores = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [data, setData] = useState([]);
@@ -131,7 +133,7 @@ const Cores = () => {
                 {
                   name: "description",
                   label: "Description",
-                  type: "text",
+                  type: "textarea",
                   required: true,
                 },
               ]}
@@ -139,7 +141,7 @@ const Cores = () => {
           </Modal>
         )}
         {loading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : (
           <ul className="cores-list">
             {data.map((item, index) => (

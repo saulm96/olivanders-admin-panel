@@ -32,7 +32,7 @@ const Form = ({ item, onSubmit, isEditing, fields }) => {
               value={formData[field.name] || ""}
               onChange={handleChange}
               required={field.required}
-              className={`${field.type}-input`}
+              className={field.type === "textarea" ? "textarea-input" : `${field.type}-input`}
             />
           ) : (
             <input
@@ -46,7 +46,9 @@ const Form = ({ item, onSubmit, isEditing, fields }) => {
           )}
         </div>
       ))}
+      <div className="button-input">
       <button type="submit">{isEditing ? "Update" : "Create"}</button>
+      </div>
     </form>
   );
 };

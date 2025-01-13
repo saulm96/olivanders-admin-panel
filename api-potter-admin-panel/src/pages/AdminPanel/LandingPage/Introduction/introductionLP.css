@@ -1,0 +1,229 @@
+body:has(.lp-wrapper) {
+    background-color: rgb(11, 12, 14);
+}
+
+.lp-wrapper {
+    width: 100%;
+    min-height: 85vh;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: -1;
+
+    overflow: hidden;
+}
+
+.lp-header {
+    height: 40rem;
+    width: 100%;
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    top: -35%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+}
+
+
+.lp-logo-holder {
+    position: absolute;
+    width: 35rem;
+    height: 35rem;
+
+    background: rgb(2, 29, 36);
+    background: linear-gradient(90deg, rgb(15, 1, 24) 0%, rgb(46, 6, 82) 100%);
+
+    border-radius: 50%;
+    animation: slideFromTop 1s ease-out forwards;
+
+}
+
+.lp-logo-holder-bg1 {
+    position: absolute;
+    z-index: -2;
+
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+
+    box-shadow: 0px 30px 60px 10px rgba(56, 40, 102, 0.5);
+
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+.lp-logo-holder-bg2 {
+    width: auto;
+    position: absolute;
+
+    top: 80%;
+    right: -10%;
+
+    -webkit-mask-image: linear-gradient(to top,
+            transparent 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 1) 100%);
+    mask-image: linear-gradient(to top,
+            transparent 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 1) 100%);
+    animation: regularFadeIn 5s ease-out forwards;
+    opacity: 0;
+
+}
+
+.lp-logo-holder-bg3 {
+    font-size: 2.5rem;
+
+    margin-top: 8rem;
+
+    position: absolute;
+    left: 37%;
+
+    width: auto;
+
+    z-index: 0;
+
+
+    animation: regularFadeIn 3s ease-in forwards;
+    animation-delay: 1s;
+
+    opacity: 0;
+}
+
+.lp-header-title-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+/*Styles for the title and the subtitle inside the Logo Holder here*/
+
+.lp-header-subtitle {
+    font-size: 2rem;
+    margin-left: 1.5rem;
+}
+
+.lp-logo-holder-bg4 {
+    position: absolute;
+
+    opacity: 0.2;
+
+    top: 30%;
+    left: -10%;
+
+    opacity: 0;
+    animation: dementhor-1-FadeIn 2s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.lp-introduction-holder {
+    padding: 1.5rem;
+    font-size: 1.3rem;
+
+    margin-top: 15rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    background: rgba(25, 0, 39, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(174, 0, 255, 0.082);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(86, 0, 167, 0.3);
+}
+
+.lp-introduction-2 {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 5rem;
+}
+
+.lp-introduction-text-2,
+.lp-introduction-text-3,
+.scroll-icon-container {
+    font-size: 1.1rem;
+    animation: lp-introduction-text-anim 3s ease-in-out infinite;
+
+    opacity: 0.7;
+}
+
+
+
+@keyframes slideFromTop {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes regularFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dementhor-1-FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+@keyframes lp-introduction-text-anim{
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(5px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
