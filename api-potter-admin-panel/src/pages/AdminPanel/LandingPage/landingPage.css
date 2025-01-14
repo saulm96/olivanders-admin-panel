@@ -30,6 +30,39 @@
     margin-top: 10rem;
 }
 
-.test-img {
-    width: 100%;
+.lp-section-1-model-container{
+    position: relative;
 }
+.wand-canvas{
+    margin: 2rem 0 4rem 0;
+}
+
+.lp-section-1-card-text{
+
+    border: 1px solid rgba(86, 0, 167, 0.3);
+    background: rgba(25, 0, 39, 0.582);
+
+    border-radius: 16px;
+    padding: 1rem;
+}
+.lp-section-1-card-text:first-of-type{
+    position: absolute;
+    top: 15%;
+    left: 5%;
+}
+.lp-section-1-card-text:nth-of-type(2){
+    position: absolute;
+    top: 45%;
+    left: 5%;
+
+    width: 40%;
+}
+.lp-section-1-card-text:last-of-type{
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+
+    width: 35%;
+
+}
+
