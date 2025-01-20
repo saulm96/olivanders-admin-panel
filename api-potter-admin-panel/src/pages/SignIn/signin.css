@@ -1,3 +1,6 @@
+body:has(.login-container){
+    background: black;
+    }
 .login-wrapper {
     position: relative;
 
