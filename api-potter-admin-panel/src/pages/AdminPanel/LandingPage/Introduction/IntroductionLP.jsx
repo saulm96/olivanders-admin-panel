@@ -26,9 +26,6 @@ const IntroductionLP = () => {
           </div>
         </div>
 
-        <div className="lp-logo-holder-bg4">
-          <img src={loginBg3} alt="dementhor" />
-        </div>
       </div>
 
       <div className="lp-introduction-holder">
